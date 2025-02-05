@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    position: relative;
+}
+
+.card {
+    position: relative;
+    z-index: 1; /* Ensures the card content stays on top of the rotating outline */
+}
+
+.card-outline {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 5px solid red; /* Red border for the square outline */
+    border-radius: 10px;
+    animation: rotateOutline 5s infinite linear; /* Rotate effect applied only to the outline */
+    z-index: 0; /* Ensure outline stays behind the card content */
+}
+
+@keyframes rotateOutline {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.card-content {
+    background-color: black;
+    padding: 60px;
+    text-align: center;
+    position: relative;
+    z-index: 0; /* Keeps content above the rotating outline */
+    border-radius: 10px;
+}
+
+.logo-img {
+    width: 60px;
+    height: 90px;
+    margin-bottom: 10px;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.title {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.contact-btn {
+    background-color: transparent;
+    color: white; /* Button text color set to white */
+    border: 2px solid red; /* Hollow button with a red border */
+    padding: 10px;
+    margin: 5px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: red;
+    color: black; /* Change text color to black on hover */
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .contact-btn {
+        font-size: 14px;
+    }
+}
